@@ -1,0 +1,18 @@
+﻿@using DTO.Model;
+@model Aircraft;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center"> 
+    <h1 class="display-4">Aircraft</h1>
+</div>
+<ul>
+    @foreach(Aircraft s in @ViewBag.aircrafts)
+    {
+        <p>@s</p>
+    }
+</ul>
+
+
