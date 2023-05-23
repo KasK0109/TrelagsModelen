@@ -15,6 +15,7 @@ public class AirlineDetail
         Aircrafts = new List<Aircraft>();
     }
 
+
     public int AirlineID { get; set; }
     [Required]
     public string Name { get; set; }

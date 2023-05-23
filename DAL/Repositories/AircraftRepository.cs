@@ -88,7 +88,22 @@ namespace DAL.Repositories
                 return result;
             }
         }
-        
+
+        public static List<AirlineDetail> GetAirlinesDetail()
+        {
+            using (AircraftContext context = new AircraftContext())
+            {
+                List<AirlineDetail> result = new List<AirlineDetail>();
+
+                foreach (var ai in context.Airlines)
+                {
+                    result.Add(GetAirline(ai.AirlineID));
+                }
+
+                return result;
+            }
+        }
+
         public static void AddAirline(AirlineDetail airline)
         {
             using (AircraftContext context = new AircraftContext()) 

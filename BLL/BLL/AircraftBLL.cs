@@ -32,7 +32,7 @@ public class AircraftBLL
         AircraftRepository.RemoveAircraft(aircraft);
     }
     
-    // SWORD OWNERS
+    // AIRLINES
     
     public AirlineDetail GetAirline(int id)
     {
@@ -42,6 +42,11 @@ public class AircraftBLL
     public List<Airline> GetAirlines()
     {
         return AircraftRepository.GetAirlines();
+    }
+
+    public List<AirlineDetail> GetAirlinesDetail()
+    {
+        return AircraftRepository.GetAirlinesDetail();
     }
 
     public void AddAirline(AirlineDetail airline)
