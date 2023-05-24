@@ -46,9 +46,12 @@ public partial class MainWindow : Window
 
     private void RemoveButton_Click(object? sender, RoutedEventArgs e)
     {
-        Aircraft aircraft = (Aircraft)AircraftList.SelectedItem;
-        aircraftBLL.RemoveAircraft(aircraft);
-        AircraftList.ItemsSource = aircraftBLL.GetAircrafts();
+        if (AirlinesList.SelectedItem != null)
+        {
+            Aircraft aircraft = (Aircraft)AircraftList.SelectedItem;
+            aircraftBLL.RemoveAircraft(aircraft);
+            AircraftList.ItemsSource = aircraftBLL.GetAircrafts();
+        }
     }
 
     private void EditButton_Click(object? sender, RoutedEventArgs e)

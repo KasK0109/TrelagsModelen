@@ -1,0 +1,18 @@
+﻿@using DTO.Model;
+@model WEBGUI.Models.OwnerViewModel;
+
+@{
+    ViewBag.Ttle = "title";
+
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    if (Model.Airlines != null)
+    {
+        @Html.ListBox("Airlines")
+        <input type="submit" value="Get info">
+    }
+}
+
+<h2>Title</h2>

@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFGUI", "WPFGUI\WPFGUI.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WEBGUI", "WEBGUI\WEBGUI.csproj", "{CBBB47D4-AE51-442A-B8E0-A37D7A09F8B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AircraftAPI", "AircraftAPI\AircraftAPI.csproj", "{F93D5F80-A505-4F2A-8D43-05523BF95B54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CBBB47D4-AE51-442A-B8E0-A37D7A09F8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBBB47D4-AE51-442A-B8E0-A37D7A09F8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBBB47D4-AE51-442A-B8E0-A37D7A09F8B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F93D5F80-A505-4F2A-8D43-05523BF95B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93D5F80-A505-4F2A-8D43-05523BF95B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93D5F80-A505-4F2A-8D43-05523BF95B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93D5F80-A505-4F2A-8D43-05523BF95B54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,18 +1,52 @@
 ﻿@using DTO.Model;
-@model Aircraft;
+@model WEBGUI.Models.HomeViewModel;
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Aircraft info";
+}
+
+@section MitNavn {
+    <div>
+        <p>
+            Hej
+        </p>
+    </div>
 }
 
 <div class="text-center"> 
-    <h1 class="display-4">Aircraft</h1>
-</div>
-<ul>
-    @foreach(Aircraft s in @ViewBag.aircrafts)
-    {
-        <p>@s</p>
-    }
-</ul>
+    <h1 class="display-4">Aircraft Info</h1>
 
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        if (Model.Aircrafts != null)
+        {
+            @Html.ListBox("Aircrafts")
+            <input type="submit" value="Get info">
+        }
+    }
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        @Html.DropDownList("Airlines")
+        <input type="submit" value="Get Info">
+    }
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <div>
+            @Html.Label("Aircraft Name: ")
+            @Html.EditorFor(Model => Model.Aircraft.Name)
+        </div>
+
+        <div>
+            @Html.Label("Aircraft Wignspan: ")
+            @Html.EditorFor(Model => Model.Aircraft.WingSpan)
+        </div>
+
+        <div>
+            @Html.Label("Aircraft max cruise: ")
+            @Html.EditorFor(Model => Model.Aircraft.MaxCrz)
+        </div>
+    }
+</div>
 

@@ -17,6 +17,11 @@ public class Aircraft
         WingSpan = wingSpan;
         MaxCrz = maxCrz;
     }
+
+    public Aircraft()
+    {
+
+    }
     
     public int AircraftID { get; set; }
     [Required]
