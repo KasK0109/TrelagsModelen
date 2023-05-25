@@ -25,10 +25,6 @@ public partial class MainWindow : Window
 
         AircraftList.ItemsSource = aircraftBLL.GetAircrafts();
         AircraftList.SelectionChanged += AircraftList_SelectionChanged;
-
-        AddBtn.Click += AddButton_Click;
-        EditBtn.Click += EditButton_Click;
-        RemoveBtn.Click += RemoveButton_Click;
     }
 
     private void AirlinesList_SelectionChanged(object? sender, SelectionChangedEventArgs e)
@@ -49,21 +45,23 @@ public partial class MainWindow : Window
         if (AirlinesList.SelectedItem != null)
         {
             Aircraft aircraft = (Aircraft)AircraftList.SelectedItem;
-            aircraftBLL.RemoveAircraft(aircraft);
-            AircraftList.ItemsSource = aircraftBLL.GetAircrafts();
+            if (aircraft != null)
+            {
+                aircraftBLL.RemoveAircraft(aircraft);
+                AircraftList.ItemsSource = aircraftBLL.GetAircrafts();
+                AircraftList.SelectedItem = null;
+            }
         }
     }
 
     private void EditButton_Click(object? sender, RoutedEventArgs e)
     {
-        
-        string name = txtName.Text;
-        double wingSpan = double.Parse(txtWingspan.Text);
-        double maxCrz = double.Parse(txtMaxCruise.Text);
-        int id = ((Aircraft)(AircraftList.SelectedItem)).AircraftID;
-        aircraftBLL.EditAircraft(new Aircraft(id, name, wingSpan, maxCrz));
-        AircraftList.ItemsSource = aircraftBLL.GetAircrafts();
-        
+            string name = txtName.Text;
+            double wingSpan = double.Parse(txtWingspan.Text);
+            double maxCrz = double.Parse(txtMaxCruise.Text);
+            int id = ((Aircraft)(AircraftList.SelectedItem)).AircraftID;
+            aircraftBLL.EditAircraft(new Aircraft(id, name, wingSpan, maxCrz));
+            AircraftList.ItemsSource = aircraftBLL.GetAircrafts();
     }
 
     private void AddButton_Click(object? sender, RoutedEventArgs e)
@@ -88,10 +86,16 @@ public partial class MainWindow : Window
         
         try
         {
-            Aircraft aircraft = (Aircraft)AircraftList.SelectedItem;
-            txtName.Text = aircraft.Name;
-            txtWingspan.Text = aircraft.WingSpan + "";
-            txtMaxCruise.Text = aircraft.MaxCrz + "";
+            if (AirlinesList.SelectedItem != null)
+            {
+                Aircraft aircraft = (Aircraft)AircraftList.SelectedItem;
+                if (aircraft != null)
+                {
+                    txtName.Text = aircraft.Name;
+                    txtWingspan.Text = aircraft.WingSpan + "";
+                    txtMaxCruise.Text = aircraft.MaxCrz + "";
+                }
+            }
         }
         catch (Exception err)
         {

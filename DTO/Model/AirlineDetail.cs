@@ -17,6 +17,7 @@ public class AirlineDetail
 
 
     public int AirlineID { get; set; }
+
     [Required]
     public string Name { get; set; }
     public List<Aircraft> Aircrafts { get; set; }

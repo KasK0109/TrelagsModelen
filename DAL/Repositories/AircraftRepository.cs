@@ -60,8 +60,8 @@ namespace DAL.Repositories
         {
             using (AircraftContext context = new AircraftContext())
             {
-                Model.Aircraft dataswo = context.Aircrafts.Find(aircraft.AircraftID);
-                context.Remove(dataswo);
+                Model.Aircraft dataAir = context.Aircrafts.Find(aircraft.AircraftID);
+                context.Remove(dataAir);
                 context.SaveChanges();
             } 
         }

@@ -6,13 +6,24 @@
 
 }
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+@using (Html.BeginForm("Index", "Owner", FormMethod.Get))
 {
     if (Model.Airlines != null)
     {
-        @Html.ListBox("Airlines")
+        @Html.ListBoxFor(m => m.Airlines, Model.Airlines)
         <input type="submit" value="Get info">
     }
 }
 
-<h2>Title</h2>
+@using (Html.BeginForm("Index", "Owner", FormMethod.Post))
+{
+    @Html.HiddenFor(Model => Model.Airline.AirlineID)<br/>
+    @Html.Label("Name")<br/>
+    @Html.EditorFor(Model => Model.Airline.Name)<br/>
+    <br/>
+
+    <input type="submit" value="Add" name="submit">
+    <input type="submit" value="Delete" name="submit">
+
+}
+
